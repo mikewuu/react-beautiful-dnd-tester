@@ -1,0 +1,53 @@
+{
+  "name": "react-beautiful-dnd-tester",
+  "version": "0.0.1",
+  "description": "Test utils for react-beautiful-dnd",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && babel src -d dist --extensions '.ts,.tsx'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx)\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "check-types": "tsc",
+    "dist:remove": "rm -rf dist"
+  },
+  "author": "Mike Wu <reach@sysdevmike.com> (https://sysdevmike.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^25.1.4",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "react": "^16.13.1",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-dom": "^16.13.1",
+    "react-testing-library": "^8.0.1",
+    "typescript": "^3.8.3"
+  },
+  "lint-staged": {
+    "**/*.+(js|ts|tsx)": [
+      "eslint",
+      "prettier --write",
+      "jest --findRelatedTests",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run check-types && lint-staged && npm run build",
+      "post-commit": "npm run dist:remove"
+    }
+  }
+}
