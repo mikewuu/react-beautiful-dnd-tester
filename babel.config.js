@@ -11,4 +11,5 @@ module.exports = {
     '@babel/react',
     '@babel/preset-typescript',
   ],
+  ignore: ['**/*.d.ts'],
 }

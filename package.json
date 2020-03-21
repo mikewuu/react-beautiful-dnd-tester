@@ -3,7 +3,7 @@
   "version": "0.0.8",
   "description": "A react-testing-lib extension for simple beautiful-react-dnd testing.",
   "main": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx)\"",
