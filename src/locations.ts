@@ -26,12 +26,23 @@ export const inFrontOf: Location = ({source, direction}) => (target) => {
 
 export const behind = inFrontOf
 
-function dragIndexOf(el: HTMLElement) {
+function dragIndexOf(handle: HTMLElement) {
+  const draggableEl = handle.closest(
+    `[${draggableAttribute}]`,
+  ) as HTMLElement | null
+
+  if (!draggableEl) {
+    throw new Error(
+      `Could not find draggable element. Are you sure you provided a drag handler?`,
+    )
+  }
+
   let index = null
-  const siblings = siblingsOf(el)
+
+  const siblings = siblingsOf(draggableEl)
 
   for (const [i, v] of siblings.entries()) {
-    if (v === el) {
+    if (v === draggableEl) {
       index = i
     }
   }
