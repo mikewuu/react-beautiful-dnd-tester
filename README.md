@@ -42,6 +42,13 @@ To perform the drag, provide the target element to the drag function, and call a
 location function with the reference elment. _Make sure both elements are drag
 handlers!_
 
+There are 2 location methods:
+
+- `inFrontOf`
+- `behind`
+
+Feel free to use whichever reads better.
+
 ```jsx
 import {horizontalDrag} from 'react-beautiful-dnd-tester`;
 
