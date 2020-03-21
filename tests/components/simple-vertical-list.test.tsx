@@ -1,17 +1,39 @@
 import React from 'react'
 import SimpleVerticalList from '../../components/simple-vertical-list'
-import {render, queries as defaultQueries} from '@testing-library/react'
-import * as customQueries from '../../src/queries'
+import {render} from '../../src'
 
-it('should render a list of items', () => {
-  const {debug} = render(<SimpleVerticalList />, {
-    queries: {
-      ...defaultQueries,
-      ...customQueries,
-    },
-  })
+it('drags an item in front of another', () => {
+  const {drag, getAllByTestId} = render(<SimpleVerticalList />)
 
-  debug()
+  let first = getAllByTestId(/item/i)[0]
+  let second = getAllByTestId(/item/i)[1]
 
-  expect(true).toBe(true)
+  drag(second).inFrontOf(first)
+  first = getAllByTestId(/item/i)[0]
+  expect(first.textContent).toBe(second.textContent)
+
+  second = getAllByTestId(/item/i)[1]
+  const fourth = getAllByTestId(/item/i)[3]
+
+  drag(fourth).inFrontOf(second)
+  second = getAllByTestId(/item/i)[1]
+  expect(second.textContent).toBe(fourth.textContent)
+})
+
+it('drags an item behind another', () => {
+  const {drag, getAllByTestId} = render(<SimpleVerticalList />)
+
+  let first = getAllByTestId(/item/i)[0]
+  const second = getAllByTestId(/item/i)[1]
+
+  drag(first).behind(second)
+  first = getAllByTestId(/item/i)[0]
+  expect(first.textContent).toBe(second.textContent)
+
+  const sixth = getAllByTestId(/item/i)[5]
+  let ninth = getAllByTestId(/item/i)[8]
+
+  drag(sixth).behind(ninth)
+  ninth = getAllByTestId(/item/i)[8]
+  expect(ninth.textContent).toBe(sixth.textContent)
 })

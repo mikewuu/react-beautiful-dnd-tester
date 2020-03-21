@@ -54,6 +54,8 @@ export default function SimpleVerticalList() {
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
+                    aria-label={`${index}`}
+                    data-testid="item"
                   >
                     {item.content}
                   </div>
