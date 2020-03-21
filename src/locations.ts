@@ -4,14 +4,16 @@ const draggableAttribute = 'data-rbd-draggable-id'
 
 export type DragDirection = 'vertical' | 'horizontal'
 
-export interface ActionContext {
+export interface LocationContext {
   source: HTMLElement
   direction: DragDirection
 }
 
-export type Action = (context: ActionContext) => (target: HTMLElement) => void
+export type Location = (
+  context: LocationContext,
+) => (target: HTMLElement) => void
 
-export const inFrontOf: Action = ({source, direction}) => (target) => {
+export const inFrontOf: Location = ({source, direction}) => (target) => {
   const sourceIndex = dragIndexOf(source)
   const targetIndex = dragIndexOf(target)
 
@@ -62,7 +64,7 @@ function toggleFocus(el: HTMLElement) {
   fireEvent.keyDown(el, {keyCode: 32})
 }
 
-export interface MoveContext extends ActionContext {
+export interface MoveContext extends LocationContext {
   positions: number
 }
 

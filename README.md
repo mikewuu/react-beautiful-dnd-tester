@@ -1,7 +1,7 @@
 # Beautiful Tests for Beautiful Drag and Drops
 
-An extension for the `testing-library/react-testing-library` that adds a few
-useful utility functions to simulate dragging.
+An expressive API for dragging objects in a test -
+`verticalDrag(this).inFrontOf(that)`
 
 ```
 Currently only tested with simple lists. Nested lists and dragging from one list to another is currently **not** supported. P/Rs welcome!
@@ -11,43 +11,53 @@ Currently only tested with simple lists. Nested lists and dragging from one list
 
 `npm install --save-dev react-beautiful-dnd-tester`
 
+This test uses `fireEvent` from `react-testing-library`.
+
 ## Usage
 
-`react-beautiful-dnd-tester` exports new queries, and actions on top of the
-default queries from RTL's (`react-testing-library`) `render` so make sure
-you're importing the correct `render`:
+There are 2 drag methods available:
+
+- `verticalDrag`
+- `horizontalDrag`
+
+Use the one appropriate for your list, so if your `Droppable` looks like:
 
 ```javascript
-import {render} from 'react-beautiful-dnd-tester`
+<Droppable droppableId="droppable" direction="horizontal">
+  ...
+</Droppable>
 ```
 
-All custom options are still forwarded to RTL's `render` so there should be no
-other changes in your tests
-
-### Drag
-
-Render now returns a `drag` method to initiate a drag. Pass in the HTMLElement
-you'd like to drag. _Make sure it's a drag handler!_
+Make sure you're using `horizontalDrag` like so:
 
 ```javascript
-const {drag, getAllByTestId} = render(<SimpleVerticalList />)
-
-let first = getAllByTestId(/item/i)[0]
-let second = getAllByTestId(/item/i)[1]
+import {horizontalDrag} from 'react-beautiful-dnd-tester`
 ```
 
-Once you've got your element, you're ready to drag!
+To perform the drag, provide the target element to the drag function, and call a
+location function with the reference elment. _Make sure both elements are drag
+handlers!_
 
-#### `inFrontOf`
+```javascript
+import {horizontalDrag} from 'react-beautiful-dnd-tester`
 
-`drag(second).inFrontOf(first)`
+it('should drag', () => {
+    const {getAllByTestId} = render(<SimpleHorizontalList />)
+    let second = getAllByTestId(/item/i)[1]        // target
+    let first = getAllByTestId(/item/i)[0]          // reference
 
-#### `behind`
+    horizontalDrag(second).inFrontOf(first)
 
-`drag(first).behind(second)`
-
-### Vertical List
+    /**
+     * If you've updated the state correctly,
+     * the elements will automatically be
+     * reordered as expected.
+    **/
+   const newFirst = getAllByTestId(/item/i)[0]
+   expect(newFirst.textContent).toBe(second.textContent)
+})
+```
 
 ## Examples
 
-Check out
+For more examples, check out the components directory.
