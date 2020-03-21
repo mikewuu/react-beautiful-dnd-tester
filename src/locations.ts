@@ -49,7 +49,7 @@ function dragIndexOf(handle: HTMLElement) {
 
   if (index === null) {
     throw new Error(
-      `Not a draggable element; missing attribute '${draggableAttribute}'.`,
+      `Could not find index of draggable. This should not be happening.`,
     )
   }
 
