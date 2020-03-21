@@ -1,8 +1,10 @@
 # Beautiful Tests for Beautiful Drag and Drops
 
-An expressive API for dragging objects in a test:
+An expressive API for dragging objects in a test.
 
 `verticalDrag(this).inFrontOf(that)`
+
+This package uses `fireEvent` from `@testing-library/react`.
 
 ```
 Currently only tested with simple lists.
@@ -14,8 +16,6 @@ P/Rs welcome!
 ## Install
 
 `npm install --save-dev react-beautiful-dnd-tester`
-
-This test uses `fireEvent` from `react-testing-library`.
 
 ## Usage
 
