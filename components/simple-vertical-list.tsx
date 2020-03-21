@@ -12,7 +12,7 @@ export interface Item {
 }
 
 export default function SimpleVerticalList() {
-  const makeItems = (count): Item[] =>
+  const makeItems = (count: number): Item[] =>
     Array.from({length: count}, (v, k) => k).map((k) => ({
       id: `item-${k}`,
       content: `item ${k}`,
