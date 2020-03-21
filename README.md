@@ -55,7 +55,7 @@ it('should drag', () => {
     /**
      * If you've updated the state correctly,
      * the elements will automatically be
-     * reordered as expected.
+     * updated to reflect the new order.
     **/
    const newFirst = getAllByTestId(/item/i)[0];
    expect(newFirst.textContent).toBe(second.textContent);
