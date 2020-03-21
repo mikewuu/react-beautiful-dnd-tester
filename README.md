@@ -46,19 +46,19 @@ handlers!_
 import {horizontalDrag} from 'react-beautiful-dnd-tester`;
 
 it('should drag', () => {
-    const {getAllByTestId} = render(<SimpleHorizontalList />)
-    let second = getAllByTestId(/item/i)[1]        // target
-    let first = getAllByTestId(/item/i)[0]          // reference
+    const {getAllByTestId} = render(<SimpleHorizontalList />);
+    let second = getAllByTestId(/item/i)[1];        // target
+    let first = getAllByTestId(/item/i)[0];          // reference
 
-    horizontalDrag(second).inFrontOf(first)
+    horizontalDrag(second).inFrontOf(first);
 
     /**
      * If you've updated the state correctly,
      * the elements will automatically be
      * reordered as expected.
     **/
-   const newFirst = getAllByTestId(/item/i)[0]
-   expect(newFirst.textContent).toBe(second.textContent)
+   const newFirst = getAllByTestId(/item/i)[0];
+   expect(newFirst.textContent).toBe(second.textContent);
 })
 ```
 
