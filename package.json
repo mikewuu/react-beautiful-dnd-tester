@@ -1,6 +1,6 @@
 {
   "name": "react-beautiful-dnd-tester",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A react-testing-lib extension for simple beautiful-react-dnd testing.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
