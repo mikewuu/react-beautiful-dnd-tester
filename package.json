@@ -22,7 +22,7 @@
   "author": "Mike Wu <reach@sysdevmike.com> (https://sysdevmike.com)",
   "license": "MIT",
   "dependencies": {
-    "react-testing-library": "^8.0.1"
+    "@testing-library/react": "^10.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -33,7 +33,6 @@
     "@babel/preset-react": "^7.9.1",
     "@babel/preset-typescript": "^7.8.3",
     "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^10.0.1",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.2",
     "@types/react": "^16.9.25",
