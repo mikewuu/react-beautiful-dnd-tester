@@ -10,7 +10,8 @@
   "extends": [
     "eslint:recommended",
     "eslint-config-prettier",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:react/recommended"
   ],
   "env": {
     "node": true,
@@ -47,7 +48,8 @@
           {
             "varsIgnorePattern": "^_"
           }
-        ]
+        ],
+        "@typescript-eslint/no-empty-function": "off"
       }
     }
   ]
