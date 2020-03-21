@@ -1,7 +1,7 @@
 {
   "name": "react-beautiful-dnd-tester",
   "version": "0.0.3",
-  "description": "Test utils for react-beautiful-dnd",
+  "description": "A react-testing-lib extension for simple beautiful-react-dnd testing.",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
