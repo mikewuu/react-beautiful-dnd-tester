@@ -1,7 +1,7 @@
 //@ts-nocheck
 
-import {CustomQueries} from './../../src/index'
-import * as customQueries from '../../src/queries'
+import {CustomQueries} from './src/index'
+import * as customQueries from './src/queries'
 
 export interface TestRenderResult extends CustomQueries {
   container: HTMLElement

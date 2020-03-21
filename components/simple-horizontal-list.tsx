@@ -11,7 +11,7 @@ export interface Item {
   content: string
 }
 
-export default function SimpleVerticalList() {
+export default function SimpleHorizontalList() {
   const makeItems = (count: number): Item[] =>
     Array.from({length: count}, (v, k) => k).map((k) => ({
       id: `item-${k}`,

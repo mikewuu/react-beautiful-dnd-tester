@@ -1,5 +1,5 @@
 import React from 'react'
-import SimpleHorizontalList from '../../components/simple-horizontal-list'
+import SimpleHorizontalList from '../simple-horizontal-list'
 import {render} from '../../src'
 
 it('drags an item in front of another', () => {

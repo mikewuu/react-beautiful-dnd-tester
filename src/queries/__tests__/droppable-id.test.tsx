@@ -1,5 +1,5 @@
 import React from 'react'
-import {render} from '../../src/index'
+import {render} from '../../index'
 
 it('should throw an error if missing', () => {
   expect.assertions(1)

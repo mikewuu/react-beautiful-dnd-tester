@@ -4,13 +4,17 @@
   "description": "Test utils for react-beautiful-dnd",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && babel src -d dist --extensions '.ts,.tsx'",
     "test": "jest",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "check-types": "tsc",
+    "declaration:build": "tsc -p declaration.tsconfig.json --outDir dist",
+    "package.json:copy": "cp package.json dist/",
+    "build": "rm -rf dist && babel src --ignore **/__tests__,**/__mocks__,**/__utils__,**/*.test.* --out-dir dist --extensions '.ts' && npm run declaration:build && npm run package.json:copy",
+    "release": "npm version patch && npm run build && cd dist && npm publish",
+    "postrelease": "npm run dist:remove",
     "dist:remove": "rm -rf dist"
   },
   "author": "Mike Wu <reach@sysdevmike.com> (https://sysdevmike.com)",

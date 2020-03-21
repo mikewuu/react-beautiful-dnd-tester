@@ -1,5 +1,5 @@
 import React from 'react'
-import SimpleVerticalList from '../../components/simple-vertical-list'
+import SimpleVerticalList from '../simple-vertical-list'
 import {render} from '../../src'
 
 it('drags an item in front of another', () => {
