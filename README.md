@@ -1,10 +1,14 @@
 # Beautiful Tests for Beautiful Drag and Drops
 
-An expressive API for dragging objects in a test -
+An expressive API for dragging objects in a test:
+
 `verticalDrag(this).inFrontOf(that)`
 
 ```
-Currently only tested with simple lists. Nested lists and dragging from one list to another is currently **not** supported. P/Rs welcome!
+Currently only tested with simple lists.
+Nested lists and dragging from one list to another is currently **not** supported.
+
+P/Rs welcome!
 ```
 
 ## Install
@@ -15,7 +19,7 @@ This test uses `fireEvent` from `react-testing-library`.
 
 ## Usage
 
-There are 2 drag methods available:
+There are 2 drag methods:
 
 - `verticalDrag`
 - `horizontalDrag`
@@ -28,7 +32,7 @@ Use the one appropriate for your list, so if your `Droppable` looks like:
 </Droppable>
 ```
 
-Make sure you're using `horizontalDrag` like so:
+Make sure you're importing `horizontalDrag`:
 
 ```javascript
 import {horizontalDrag} from 'react-beautiful-dnd-tester`
@@ -39,7 +43,7 @@ location function with the reference elment. _Make sure both elements are drag
 handlers!_
 
 ```javascript
-import {horizontalDrag} from 'react-beautiful-dnd-tester`
+import {horizontalDrag} from 'react-beautiful-dnd-tester`;
 
 it('should drag', () => {
     const {getAllByTestId} = render(<SimpleHorizontalList />)
