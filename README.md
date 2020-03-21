@@ -6,7 +6,7 @@ An expressive API for dragging objects in a test:
 
 ```
 Currently only tested with simple lists.
-Nested lists and dragging from one list to another is currently **not** supported.
+Nested lists and dragging from one list to another is currently NOT supported.
 
 P/Rs welcome!
 ```
