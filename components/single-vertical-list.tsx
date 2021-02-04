@@ -8,7 +8,7 @@ import {
 import {make as makeItems} from './utils/items'
 import {reorder} from './utils/array'
 
-export default function SimpleVerticalList() {
+export default function SingleVerticalList() {
   const [items, setItems] = useState(makeItems(10))
 
   const onDragEnd = (result: DropResult) => {
